@@ -13,8 +13,8 @@ def log_reg(train_vectors, train_labels, test_vectors, test_labels):
 
     # 计算准确率
     accuracy = accuracy_score(test_labels, prediction)
-    print(f"\n准确率: {accuracy * 100:.2f}%")
+    print(f"\n逻辑回归模型准确率: {accuracy * 100:.2f}%")
 
     # 输出更详细的评估报告
-    print("\n分类报告:")
+    print("\n逻辑回归模型分类报告:")
     print(classification_report(test_labels, prediction))
