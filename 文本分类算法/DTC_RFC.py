@@ -36,11 +36,11 @@ def DTC(train_vectors, train_labels, test_vectors, test_labels):
         class_weight： 这是用于为不同类别的样本分配不同权重。如果设置为"balanced"，则自动计算权重，以使得每个类别的样本数与整个样本数的比例相同。
         ccp_alpha： 这是在剪枝过程中使用的最小核心纯度（core purity）。如果设置为0.0，则没有限制。
         monotonic_cst： 这是用于限制决策树生长的单调性约束。如果设置为None，则没有限制。
-    :param train_vectors:
-    :param train_labels:
-    :param test_vectors:
-    :param test_labels:
-    :return:
+    :param train_vectors:训练集向量
+    :param train_labels:训练集标签
+    :param test_vectors:测试集向量
+    :param test_labels:测试集标签
+    :return:null
     """
     dt = DecisionTreeClassifier()
     # 训练模型
@@ -78,11 +78,11 @@ def RFC(train_vectors, train_labels, test_vectors, test_labels):
         ccp_alpha： 这是在剪枝过程中使用的最小核心纯度（core purity）。如果设置为0.0，则没有限制。
         max_samples： 这是用于指定在构建树时使用的最大样本数。如果设置为None，则使用所有样本；如果设置为一个整数，则使用该整数个样本。
         monotonic_cst： 这是用于限制决策树生长的单调性约束。如果设置为None，则没有限制。
-    :param train_vectors:
-    :param train_labels:
-    :param test_vectors:
-    :param test_labels:
-    :return:None
+    :param train_vectors:训练集向量
+    :param train_labels:训练集标签
+    :param test_vectors:测试集向量
+    :param test_labels:测试集标签
+    :return:null
     """
     rf = RandomForestClassifier()
     # 训练模型
