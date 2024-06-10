@@ -107,7 +107,7 @@ def divide_train_test(text_list, labels_list):
     return train_text_list, train_labels_list, test_text_list, test_labels_list
 
 
-def data_preprocess(text_path, label_path):
+def data_preprocess(text_path, label_path,is_join_words=True):
     text_list = read_file_to_list(text_path)
     label_dict_list = read_labels_to_dict_list(label_path)
 
@@ -118,6 +118,9 @@ def data_preprocess(text_path, label_path):
     train_text_list, train_labels_list, test_text_list, test_labels_list = (
         divide_train_test(filtered_text_list, label_dict_list)
     )
+
+    if is_join_words is False:
+        return train_text_list, train_labels_list, test_text_list, test_labels_list
 
     texts_train = [' '.join(i) for i in train_text_list]
     texts_test = [' '.join(i) for i in test_text_list]

@@ -23,6 +23,7 @@ def tf_idf(train_set, test_set):
     print("训练集TF-IDF特征向量:")
     print(train_tfidf.toarray())
     print(train_tfidf.shape)
+
     print("\n测试集TF-IDF特征向量:")
     print(test_tfidf.toarray())
     print(test_tfidf.shape)

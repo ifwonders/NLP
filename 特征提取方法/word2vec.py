@@ -21,8 +21,17 @@ def word2vec(train_set, test_set, vector_size=100, window=5, min_count=1, worker
     print("训练集Word2Vec向量:")
     print(train_vectors)
     print(train_vectors.shape)
-    print("测试集Word2Vec向量:")
+
+    print("\n测试集Word2Vec向量:")
     print(test_vectors)
     print(test_vectors.shape)
 
     return train_vectors, test_vectors
+
+
+if __name__ == '__main__':
+    # 假设预处理后的文本列表
+    train_texts = [['this', 'is', 'a', 'sample', 'sentence'], ['another', 'example', 'sentence']]
+    test_texts = [['this', 'is', 'a', 'test'], ['sample', 'test', 'text']]
+
+    word2vec(train_texts, test_texts)
