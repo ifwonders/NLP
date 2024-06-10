@@ -1,0 +1,169 @@
+2024/6/10 15:15
+
+使用tf-idf方法提取特征并训练模型
+
+逻辑回归模型准确率: 74.85%
+
+逻辑回归模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.76      0.73      0.74      1777
+         1.0       0.74      0.77      0.75      1777
+
+    accuracy                           0.75      3554
+   macro avg       0.75      0.75      0.75      3554
+weighted avg       0.75      0.75      0.75      3554
+
+
+SVM模型准确率: 74.76%
+
+SVM模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.75      0.74      0.75      1777
+         1.0       0.74      0.75      0.75      1777
+
+    accuracy                           0.75      3554
+   macro avg       0.75      0.75      0.75      3554
+weighted avg       0.75      0.75      0.75      3554
+
+
+决策树模型准确率: 62.18%
+
+决策树模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.61      0.65      0.63      1777
+         1.0       0.63      0.59      0.61      1777
+
+    accuracy                           0.62      3554
+   macro avg       0.62      0.62      0.62      3554
+weighted avg       0.62      0.62      0.62      3554
+
+
+随机森林模型准确率: 69.47%
+
+随机森林模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.67      0.76      0.71      1777
+         1.0       0.72      0.63      0.67      1777
+
+    accuracy                           0.69      3554
+   macro avg       0.70      0.69      0.69      3554
+weighted avg       0.70      0.69      0.69      3554
+
+
+=====================================================
+
+
+使用word2vec方法提取特征并训练模型
+
+逻辑回归模型准确率: 54.11%
+
+逻辑回归模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.54      0.55      0.55      1777
+         1.0       0.54      0.53      0.53      1777
+
+    accuracy                           0.54      3554
+   macro avg       0.54      0.54      0.54      3554
+weighted avg       0.54      0.54      0.54      3554
+
+
+SVM模型准确率: 54.53%
+
+SVM模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.54      0.56      0.55      1777
+         1.0       0.55      0.53      0.54      1777
+
+    accuracy                           0.55      3554
+   macro avg       0.55      0.55      0.55      3554
+weighted avg       0.55      0.55      0.55      3554
+
+
+决策树模型准确率: 52.59%
+
+决策树模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.53      0.52      0.52      1777
+         1.0       0.53      0.53      0.53      1777
+
+    accuracy                           0.53      3554
+   macro avg       0.53      0.53      0.53      3554
+weighted avg       0.53      0.53      0.53      3554
+
+
+随机森林模型准确率: 54.45%
+
+随机森林模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.54      0.57      0.55      1777
+         1.0       0.55      0.52      0.53      1777
+
+    accuracy                           0.54      3554
+   macro avg       0.54      0.54      0.54      3554
+weighted avg       0.54      0.54      0.54      3554
+
+
+=====================================================
+
+
+使用bow方法提取特征并训练模型
+
+逻辑回归模型准确率: 74.82%
+
+逻辑回归模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.75      0.74      0.75      1777
+         1.0       0.74      0.76      0.75      1777
+
+    accuracy                           0.75      3554
+   macro avg       0.75      0.75      0.75      3554
+weighted avg       0.75      0.75      0.75      3554
+
+
+SVM模型准确率: 73.86%
+
+SVM模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.74      0.74      0.74      1777
+         1.0       0.74      0.74      0.74      1777
+
+    accuracy                           0.74      3554
+   macro avg       0.74      0.74      0.74      3554
+weighted avg       0.74      0.74      0.74      3554
+
+
+决策树模型准确率: 66.46%
+
+决策树模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.66      0.69      0.67      1777
+         1.0       0.67      0.64      0.65      1777
+
+    accuracy                           0.66      3554
+   macro avg       0.67      0.66      0.66      3554
+weighted avg       0.67      0.66      0.66      3554
+
+
+随机森林模型准确率: 70.57%
+
+随机森林模型分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.68      0.78      0.73      1777
+         1.0       0.74      0.63      0.68      1777
+
+    accuracy                           0.71      3554
+   macro avg       0.71      0.71      0.70      3554
+weighted avg       0.71      0.71      0.70      3554
+

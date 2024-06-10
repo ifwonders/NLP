@@ -19,13 +19,13 @@ if __name__ == '__main__':
     )
 
     # 用tf-idf方法提取特征
-    train_vectors, test_vectors = tf_idf(texts_train, texts_test)
+    # train_vectors, test_vectors = tf_idf(texts_train, texts_test)
 
     # 用Word2Vec方法
     # train_vectors, test_vectors = word2vec(texts_train, texts_test)
 
     # 用Bow方法
-    # train_vectors, test_vectors = BoW(texts_train, texts_test)
+    train_vectors, test_vectors = BoW(texts_train, texts_test)
 
 
     # 使用逻辑回归模型训练并评估
