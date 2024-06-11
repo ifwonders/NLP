@@ -66,3 +66,10 @@ def SearchBestParam(train_vectors, train_labels, estimator_name, **params):
     best_score = grid_search.best_score_
     print("最佳参数集:", best_params)
     print("\n最佳表现:", best_score)
+
+
+if __name__ == '__main__':
+    train_vec = None
+    train_labels = None
+
+    SearchBestParam(train_vec, train_labels, estimator_name='SVM')
