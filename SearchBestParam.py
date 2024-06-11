@@ -1,5 +1,8 @@
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
-from enum import Enum
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 """
 在通过交叉验证和网格搜索优化SVM参数的过程中，通常不需要使用测试集向量，原因如下：
@@ -7,16 +10,10 @@ from enum import Enum
 2. 避免数据泄露：测试集是用于评估模型最终性能的独立数据集，不应该在模型选择或参数优化的过程中使用。如果在优化过程中使用了测试集，可能会导致对模型性能的过高估计，这是因为模型可能过度适应了测试集中的特定特征，从而失去了泛化到新数据的能力。
 3. 网格搜索的作用：网格搜索是在给定的参数空间中搜索最佳参数组合的过程。它通过交叉验证来评估每个参数组合的性能，并选择最佳的一个。这个过程完全在训练集上进行，因此不需要测试集。
 总结来说，交叉验证和网格搜索的过程完全在训练集上进行，用于选择最佳的模型参数。一旦找到了最佳的参数组合，你可以在训练好的模型上使用测试集向量来评估模型的性能，这样可以更准确地估计模型在实际应用中的表现。
-
 """
-class estimator(Enum):
-    DTC =
-    RFC =
-    LogReg =
-    NaiveBayes =
-    SVM =
 
-def SearchBestParam(train_vectors, train_labels, estimator,**params):
+
+def SearchBestParam(train_vectors, train_labels, estimator_name, **params):
     """
     GridSearchCV参数列表的解释：
         estimator： 这是你想要优化的模型或估计器。你需要提供这个估计器的实例，例如SVC()。
@@ -29,7 +26,7 @@ def SearchBestParam(train_vectors, train_labels, estimator,**params):
         pre_dispatch： 这个参数指定在开始网格搜索之前预先分发的任务数。它是一个整数，指定在启动任何工作之前应并行执行的任务数。
         error_score： 这个参数用于指定在某些情况下，如内存不足，应该返回的错误分数。默认值为np.nan，表示模型无法训练。
         return_train_score： 这个参数指定是否在交叉验证中返回训练集的分数。如果为True，GridSearchCV将返回训练集和测试集的分数；如果为False，将只返回测试集的分数。
-    :param estimator: 这是你想要优化的模型或估计器。你需要提供这个估计器的实例，例如SVC()。
+    :param estimator_name: 这是你想要优化的模型或估计器。你需要提供这个模型的名称，如 'DTC'。
     :param train_vectors:训练集向量
     :param train_labels:训练集标签
     :param params:可选参数
@@ -47,7 +44,16 @@ def SearchBestParam(train_vectors, train_labels, estimator,**params):
     #     'coef0': [0.0, 1.0]
     # }
 
-
+    if estimator_name == 'DTC':
+        estimator = DecisionTreeClassifier()
+    elif estimator_name == 'RFC':
+        estimator = RandomForestClassifier()
+    elif estimator_name == 'LogReg':
+        estimator = LogisticRegression()
+    elif estimator_name == 'SVM':
+        estimator = SVC()
+    else:
+        estimator = None
 
     # cv=5表示使用5折交叉验证，scoring='accuracy' 表示使用准确率作为评估标准，n_jobs=-1表示使用所有可用的CPU核心来加速计算。
     grid_search = GridSearchCV(estimator, param_grid, cv=5, scoring='accuracy', n_jobs=-1)
