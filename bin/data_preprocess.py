@@ -1,6 +1,7 @@
 import re
-from nltk.corpus import stopwords
+
 import spacy
+from nltk.corpus import stopwords
 
 
 # 读取文本文件并转换为列表
@@ -107,7 +108,7 @@ def divide_train_test(text_list, labels_list):
     return train_text_list, train_labels_list, test_text_list, test_labels_list
 
 
-def data_preprocess(text_path, label_path,is_join_words=True):
+def data_sets_preprocess(text_path, label_path, is_join_words=True):
     text_list = read_file_to_list(text_path)
     label_dict_list = read_labels_to_dict_list(label_path)
 
@@ -126,3 +127,23 @@ def data_preprocess(text_path, label_path,is_join_words=True):
     texts_test = [' '.join(i) for i in test_text_list]
 
     return texts_train, train_labels_list, texts_test, test_labels_list
+
+
+def text_preprocess(text, is_join_words=True):
+    text_list = [text]
+
+    cleaned_text_list = clean_text_list(text_list)
+    tokenized_text_list = tokenize_text_list(cleaned_text_list)
+    filtered_text_list = process_text(tokenized_text_list)
+
+    if is_join_words is False:
+        return filtered_text_list
+
+    processed_text = [' '.join(i) for i in filtered_text_list]
+
+    return processed_text
+
+
+if __name__ == '__main__':
+    processed_text = text_preprocess('testing this function is working or not')
+    print(processed_text)
