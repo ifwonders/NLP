@@ -1,5 +1,5 @@
-from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.svm import SVC
 
 
 def SVM(train_vectors, train_labels, test_vectors, test_labels):
