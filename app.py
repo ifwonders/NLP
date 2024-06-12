@@ -3,6 +3,8 @@ from flask import jsonify
 from flask import render_template
 from flask import request
 
+from bin.best_classification_model import classification_model
+
 app = Flask(__name__)
 
 
@@ -15,9 +17,12 @@ def hello_world():  # put application's code here
 def process_text():
     data = request.get_json()
     text = data['text']
-    # 简单的文本处理：转换为大写
-    result = text.upper()
-    return jsonify({'result': result})
+    is_new_model = data['isNewModel']
+
+    model = classification_model(is_new_model=is_new_model)
+    prediction = model.predict_new_data(text)
+
+    return jsonify({'result': prediction})
 
 
 if __name__ == '__main__':

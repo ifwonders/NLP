@@ -3,14 +3,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import make_pipeline
 from sklearn.svm import SVC
 
-from data_preprocess import text_preprocess, data_sets_preprocess
+from bin.data_preprocess import text_preprocess, data_sets_preprocess
 
 # 文件路径
-text_path = 'data_sets/mr.txt'
+text_path = 'bin/data_sets/mr.txt'
 # 标签路径
-label_path = 'data_sets/mr_labels.txt'
+label_path = 'bin/data_sets/mr_labels.txt'
 # 训练模型保存路径
-model_save_path = 'text_classifier.joblib'
+model_save_path = 'bin/text_classifier.joblib'
 
 
 class classification_model:
