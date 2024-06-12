@@ -1,7 +1,7 @@
 import numpy as np
-from sklearn.naive_bayes import GaussianNB
+from scipy.sparse import csr_matrix
 from sklearn.metrics import accuracy_score, classification_report
-from scipy.sparse import issparse, csr_matrix, csc_matrix
+from sklearn.naive_bayes import GaussianNB
 
 
 def NB(train_vectors, train_labels, test_vectors, test_labels):
@@ -16,7 +16,7 @@ def NB(train_vectors, train_labels, test_vectors, test_labels):
     # 初始化Naive Bayes分类器
     nb_classifier = GaussianNB()
 
-    if isinstance(train_vectors,csr_matrix):
+    if isinstance(train_vectors, csr_matrix):
         train_vectors = train_vectors.toarray()
         test_vectors = test_vectors.toarray()
 
@@ -34,8 +34,8 @@ def NB(train_vectors, train_labels, test_vectors, test_labels):
     print("\n朴素贝叶斯模型分类报告:")
     print(classification_report(test_labels, predicted_labels))
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     # 示例：训练集和测试集的向量
     train_vectors = np.array([[0.5, 0.2, 0.1], [0.9, 0.8, 0.7]])  # 示例训练集向量
     test_vectors = np.array([[0.6, 0.1, 0.3], [0.8, 0.7, 0.5]])  # 示例测试集向量

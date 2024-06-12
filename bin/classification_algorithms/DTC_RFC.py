@@ -1,6 +1,6 @@
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.tree import DecisionTreeClassifier
 
 """
 决策树（Decision Tree）和随机森林（Random Forest）都是常用的机器学习算法，用于分类和回归任务。它们的主要区别在于它们的结构和训练方式。

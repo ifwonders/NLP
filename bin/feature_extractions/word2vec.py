@@ -1,5 +1,5 @@
-from gensim.models import Word2Vec
 import numpy as np
+from gensim.models import Word2Vec
 
 
 # 定义函数来计算文本的特征向量

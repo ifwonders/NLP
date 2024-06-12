@@ -64,7 +64,7 @@ def SearchBestParam(train_vectors, train_labels, estimator_name, **params):
     # 训练完成后，可以查看最佳的参数组合和对应的分数
     best_params = grid_search.best_params_
     best_score = grid_search.best_score_
-    print("最佳参数集:", best_params)
+    print("最佳参数集\n:", best_params)
     print("\n最佳表现:", best_score)
 
 

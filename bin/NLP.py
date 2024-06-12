@@ -1,31 +1,26 @@
-from data_preprocess import data_preprocess
-from 文本分类算法.logreg import log_reg
-from 文本分类算法.SVM import SVM
-from 文本分类算法.DTC_RFC import *
-from 特征提取方法.tf_idf import tf_idf
-from 特征提取方法.word2vec import word2vec
-from 特征提取方法.bag_of_words import BoW
-from 文本分类算法.NaiveBayes import NB
+from SearchBestParam import SearchBestParam
+from data_preprocess import data_sets_preprocess
+from feature_extractions.tf_idf import tf_idf
 
 # 文件路径
-text_path = '文本分类数据集/mr.txt'
+text_path = 'data_sets/mr.txt'
 # 标签路径
-label_path = '文本分类数据集/mr_labels.txt'
+label_path = 'data_sets/mr_labels.txt'
 
 if __name__ == '__main__':
     # 数据预处理
     texts_train, train_labels_list, texts_test, test_labels_list = (
-        data_preprocess(text_path, label_path)
+        data_sets_preprocess(text_path, label_path)
     )
 
     # 用tf-idf方法提取特征
-    # train_vectors, test_vectors = tf_idf(texts_train, texts_test)
+    train_vectors, test_vectors = tf_idf(texts_train, texts_test)
 
     # 用Word2Vec方法
     # train_vectors, test_vectors = word2vec(texts_train, texts_test)
 
     # 用Bow方法
-    train_vectors, test_vectors = BoW(texts_train, texts_test)
+    # train_vectors, test_vectors = BoW(texts_train, texts_test)
 
 
     # 使用逻辑回归模型训练并评估
@@ -53,7 +48,9 @@ if __name__ == '__main__':
     #     test_labels=test_labels_list)
 
     # 使用NaiveBayes模型训练并评估
-    NB(train_vectors=train_vectors,
-        train_labels=train_labels_list,
-        test_vectors=test_vectors,
-        test_labels=test_labels_list)
+    # NB(train_vectors=train_vectors,
+    #     train_labels=train_labels_list,
+    #     test_vectors=test_vectors,
+    #     test_labels=test_labels_list)
+
+    SearchBestParam(train_vectors, train_labels_list, 'SVM', kernel=['linear', 'rbf'])

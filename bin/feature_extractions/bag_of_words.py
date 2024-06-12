@@ -1,5 +1,6 @@
 from sklearn.feature_extraction.text import CountVectorizer
-from data_preprocess import data_preprocess
+
+from bin.data_preprocess import data_sets_preprocess
 
 
 def BoW(train_set, test_set):
@@ -28,13 +29,13 @@ def BoW(train_set, test_set):
 
 if __name__ == '__main__':
     # 文件路径
-    text_path = '../文本分类数据集/mr.txt'
+    text_path = '../data_sets/mr.txt'
     # labels路径
-    label_path = '../文本分类数据集/mr_labels.txt'
+    label_path = '../data_sets/mr_labels.txt'
 
     # 数据预处理
     texts_train, train_labels_list, texts_test, test_labels_list = (
-        data_preprocess(text_path, label_path)
+        data_sets_preprocess(text_path, label_path)
     )
 
     BoW(texts_train, texts_test)
