@@ -6,7 +6,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.svm import SVC
 
 from bin.data_preprocess import text_preprocess, data_sets_preprocess
-from feature_extractions.bag_of_words import BoW
+from bin.feature_extractions.bag_of_words import BoW
 
 # 文件路径
 text_path = 'bin/data_sets/mr.txt'
@@ -19,6 +19,7 @@ model_save_path = 'bin/text_classifier.joblib'
 class classification_model:
     def __init__(self, is_new_model=True):
         self.model = None
+        self.accuracy = 0.7507
         if is_new_model:
             self.init_model()
         else:
@@ -69,8 +70,8 @@ class classification_model:
         prediction = self.model.predict(texts_test)
 
         # 评估模型
-        accuracy = accuracy_score(test_labels_list, prediction)
-        print(f"集成模型的准确率: {accuracy * 100:.2f}%")
+        self.accuracy = accuracy_score(test_labels_list, prediction)
+        print(f"集成模型的准确率: {self.accuracy * 100:.2f}%")
 
         # 保存模型
         joblib.dump(self.model, model_save_path)
