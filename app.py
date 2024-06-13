@@ -21,8 +21,9 @@ def process_text():
 
     model = classification_model(is_new_model=is_new_model)
     prediction = model.predict_new_data(text)
+    accuracy = model.accuracy
 
-    return jsonify({'result': prediction})
+    return jsonify({'result': prediction, 'accuracy': accuracy})
 
 
 if __name__ == '__main__':

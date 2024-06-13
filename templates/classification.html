@@ -33,6 +33,7 @@
     <div class="am-u-md-8 am-u-md-offset-2">
         <div id="resultArea" class="am-alert am-alert-secondary" style="display:none;">
             输入文本的可能分类结果为：<span id="resultText"></span>
+            正确概率为：<span id="accuracy"></span>
         </div>
     </div>
 </div>
@@ -61,6 +62,7 @@
                 success: function (response) {
                     $('#resultArea').show();
                     $('#resultText').text(response.result);
+                    $('#accuracy').text(response.accuracy);
                 },
                 error: function () {
                     alert('处理请求失败！');
